@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Profile - SmartBlog{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'accounts/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>My Profile</h1>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="profile-form">
+        {% csrf_token %}
+        
+        <div class="profile-section">
+            <h2>Personal Information</h2>
+            
+            <div class="form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+                {% if form.name.errors %}
+                    <div class="form-errors">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="form-errors">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.phone_number.label_tag }}
+                {{ form.phone_number }}
+                {% if form.phone_number.errors %}
+                    <div class="form-errors">{{ form.phone_number.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.date_of_birth.label_tag }}
+                {{ form.date_of_birth }}
+                {% if form.date_of_birth.errors %}
+                    <div class="form-errors">{{ form.date_of_birth.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="profile-section">
+            <h2>Additional Information</h2>
+            
+            <div class="form-group">
+                {{ form.location.label_tag }}
+                {{ form.location }}
+                {% if form.location.errors %}
+                    <div class="form-errors">{{ form.location.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.website.label_tag }}
+                {{ form.website }}
+                {% if form.website.errors %}
+                    <div class="form-errors">{{ form.website.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.bio.label_tag }}
+                {{ form.bio }}
+                {% if form.bio.errors %}
+                    <div class="form-errors">{{ form.bio.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.profile_image.label_tag }}
+                {{ form.profile_image }}
+                {% if form.profile_image.errors %}
+                    <div class="form-errors">{{ form.profile_image.errors }}</div>
+                {% endif %}
+                {% if request.user.profile_image %}
+                    <p class="current-image">Current image: <img src="{{ request.user.profile_image.url }}" alt="Profile" class="profile-img-preview"></p>
+                {% endif %}
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Update Profile</button>
+    </form>
+</div>
+{% endblock %}
