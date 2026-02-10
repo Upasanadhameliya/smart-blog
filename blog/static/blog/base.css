@@ -22,8 +22,23 @@ body {
 
 .nav-container {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    position: relative;
+}
+
+.navbar-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d4a574;
+    flex: 1;
+    text-align: center;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 20px;
 }
 
 .user-menu {
@@ -103,16 +118,93 @@ body {
     max-width: 1200px;
     margin: 50px auto;
     padding: 0 20px;
-    text-align: center;
 }
 
 .container h1 {
     color: #d4a574;
     font-size: 48px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
-.container p {
-    color: #666;
+.blogs-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.blog-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    display: flex;
+    gap: 25px;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.blog-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-title {
+    color: #d4a574;
+    font-size: 28px;
+    margin: 0 0 15px 0;
+}
+
+.blog-meta {
+    color: #999;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+}
+
+.author-name {
+    color: #d4a574;
+    font-weight: bold;
+}
+
+.blog-content {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.read-more {
+    display: inline-block;
+    color: #d4a574;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: #c49463;
+    text-decoration: underline;
+}
+
+.no-blogs {
+    text-align: center;
+    color: #999;
     font-size: 18px;
+    padding: 40px 20px;
 }

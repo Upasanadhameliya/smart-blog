@@ -4,7 +4,24 @@
 
 {% block content %}
 <div class="container">
-    <h1>Hello World</h1>
-    <p>Welcome to SmartBlog</p>
+    {% if blogs %}
+        <div class="blogs-list">
+            {% for blog in blogs %}
+                <div class="blog-card">
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-image">
+                    {% endif %}
+                    <div class="blog-content-wrapper">
+                        <h2 class="blog-title">{{ blog.title }}</h2>
+                        <p class="blog-meta">By <span class="author-name">{{ blog.author.name|default:blog.author.username }}</span> | {{ blog.created_at|date:"M d, Y" }}</p>
+                        <div class="blog-content">{{ blog.content|truncatewords:50 }}</div>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-blogs">No blog posts yet. Start writing!</p>
+    {% endif %}
 </div>
 {% endblock %}
