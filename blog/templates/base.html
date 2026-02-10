@@ -17,7 +17,12 @@
                         {{ user.name|default:user.username }} ▼
                     </button>
                     <div id="dropdownMenu" class="dropdown-content">
-                        <a href="{% url 'profile' %}">Profile</a>
+                        {% if request.resolver_match.url_name != 'home' %}
+                            <a href="{% url 'home' %}">Home</a>
+                        {% endif %}
+                        {% if request.resolver_match.url_name != 'profile' %}
+                            <a href="{% url 'profile' %}">Profile</a>
+                        {% endif %}
                         <a href="{% url 'logout' %}">Logout</a>
                     </div>
                 </div>
