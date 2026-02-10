@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
 </head>
 <body>
+    <a href="{% url 'home' %}" class="home-icon" title="Back to Home">🏠</a>
+    
     <form method="post" class="form-container">
         <h1>Register</h1>
         {% csrf_token %}
