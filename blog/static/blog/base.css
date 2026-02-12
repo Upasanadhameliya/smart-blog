@@ -208,3 +208,44 @@ body {
     font-size: 18px;
     padding: 40px 20px;
 }
+
+.blog-detail {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-detail .blog-title {
+    color: #d4a574;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.blog-detail-image {
+    max-width: 600px;
+    height: auto;
+    border-radius: 4px;
+    margin: 20px auto;
+    display: block;
+}
+
+.blog-detail .blog-meta {
+    color: #999;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.back-link {
+    display: inline-block;
+    color: #d4a574;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #c49463;
+    text-decoration: underline;
+}

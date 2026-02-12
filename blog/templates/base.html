@@ -22,6 +22,9 @@
                             {% if request.resolver_match.url_name != 'home' %}
                                 <a href="{% url 'home' %}">Home</a>
                             {% endif %}
+                            {% if request.resolver_match.url_name != 'authors_list' %}
+                                <a href="{% url 'authors_list' %}">Authors</a>
+                            {% endif %}
                             {% if request.resolver_match.url_name != 'profile' %}
                                 <a href="{% url 'profile' %}">Profile</a>
                             {% endif %}

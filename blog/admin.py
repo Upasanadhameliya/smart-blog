@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog
+from .models import Blog, Tag
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
@@ -17,3 +17,8 @@ class BlogAdmin(admin.ModelAdmin):
         }),
     )
 
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    ordering = ('name',)
