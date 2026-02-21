@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ blog.title }} - SmartBlog{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="blog-detail">
+        <h1 class="blog-title">{{ blog.title }}</h1>
+        
+        {% if blog.image %}
+            <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-detail-image">
+        {% endif %}
+        
+        <p class="blog-meta">By <span class="author-name">{{ blog.author.name|default:blog.author.username }}</span> | {{ blog.created_at|date:"M d, Y" }}</p>
+        
+        <div class="blog-interactions">
+            <div class="interaction-stats">
+                <span class="stat">👁️ {{ blog.get_view_count }} views</span>
+                <span class="stat">❤️ {{ like_count }} likes</span>
+            </div>
+            
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'like_blog' blog.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    {% if user_liked %}
+                        <button type="submit" class="like-button liked">❤️ Unlike</button>
+                    {% else %}
+                        <button type="submit" class="like-button">🤍 Like</button>
+                    {% endif %}
+                </form>
+            {% else %}
+                <p class="msg"><a href="{% url 'login' %}">Login</a> to like this post</p>
+            {% endif %}
+        </div>
+        
+        <div class="blog-content">
+            {{ blog.content }}
+        </div>
+        
+        <a href="{% url 'home' %}" class="back-link">← Back to all posts</a>
+    </div>
+</div>
+{% endblock %}

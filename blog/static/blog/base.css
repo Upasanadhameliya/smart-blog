@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5e6d3;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d4a574;
+    flex: 1;
+    text-align: center;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.dropdown-btn {
+    background-color: #d4a574;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.dropdown-btn:hover {
+    background-color: #c49463;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin-top: 5px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:first-child {
+    border-radius: 4px 4px 0 0;
+}
+
+.dropdown-content a:last-child {
+    border-radius: 0 0 4px 4px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5e6d3;
+    color: #d4a574;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.login-btn {
+    background-color: #d4a574;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.login-btn:hover {
+    background-color: #c49463;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.container h1 {
+    color: #d4a574;
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.blogs-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.blog-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    display: flex;
+    gap: 25px;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.blog-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-title {
+    color: #d4a574;
+    font-size: 28px;
+    margin: 0 0 15px 0;
+}
+
+.blog-meta {
+    color: #999;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+}
+
+.author-name {
+    color: #d4a574;
+    font-weight: bold;
+}
+
+.blog-content {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.read-more {
+    display: inline-block;
+    color: #d4a574;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: #c49463;
+    text-decoration: underline;
+}
+
+.no-blogs {
+    text-align: center;
+    color: #999;
+    font-size: 18px;
+    padding: 40px 20px;
+}
+
+.blog-detail {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-detail .blog-title {
+    color: #d4a574;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.blog-detail-image {
+    max-width: 600px;
+    height: auto;
+    border-radius: 4px;
+    margin: 20px auto;
+    display: block;
+}
+
+.blog-detail .blog-meta {
+    color: #999;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.back-link {
+    display: inline-block;
+    color: #d4a574;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #c49463;
+    text-decoration: underline;
+}

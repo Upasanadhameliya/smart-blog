@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}SmartBlog - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if message %}
+        <div class="message-box">
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
+    
+    {% if blogs %}
+        <div class="blogs-list">
+            {% for blog in blogs %}
+                <div class="blog-card">
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-image">
+                    {% endif %}
+                    <div class="blog-content-wrapper">
+                        <h2 class="blog-title">{{ blog.title }}</h2>
+                        <p class="blog-meta">By <span class="author-name">{{ blog.author.name|default:blog.author.username }}</span> | {{ blog.created_at|date:"M d, Y" }}</p>
+                        <div class="blog-content">{{ blog.content|truncatewords:50 }}</div>
+                        <a href="{% url 'blog_detail' blog.id %}" class="read-more">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-blogs">No blog posts available. Start following authors to see content in your feed!</p>
+    {% endif %}
+</div>
+{% endblock %}
